@@ -1,4 +1,4 @@
-import { useState } from "react";
+import styled from "styled-components";
 
 export default function Category({
   id,
@@ -20,10 +20,8 @@ export default function Category({
         <p>{description}</p>
         <p>{category}</p>
       </div>
-      <ul>
-        <li>{tags}</li>
-      </ul>
-      <div>
+
+      <ButtonsWrap>
         <button
           onClick={() => {
             console.log("edit");
@@ -39,7 +37,14 @@ export default function Category({
         >
           Delete
         </button>
-      </div>
+      </ButtonsWrap>
     </div>
   );
 }
+
+export const ButtonsWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+  padding: 10px;
+`;

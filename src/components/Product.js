@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styled from "styled-components";
 
 export default function Product(props) {
   const [isDeleteMode, setDeleteMode] = useState(false);
@@ -45,7 +46,7 @@ function ProductModeShow({
       <ul>
         <li>{tags}</li>
       </ul>
-      <div>
+      <ButtonsWrap>
         <button
           onClick={() => {
             console.log("Delete card", id, content, name);
@@ -55,7 +56,7 @@ function ProductModeShow({
         </button>
 
         <button onClick={onEnableDeleteMode}>Edit</button>
-      </div>
+      </ButtonsWrap>
     </div>
   );
 }
@@ -82,7 +83,7 @@ function ProductModeEdit({
       <ul>
         <li>{tags}</li>
       </ul>
-      <div>
+      <ButtonsWrap>
         <button
           onClick={() => {
             console.log("Delete card", id, content, name);
@@ -92,7 +93,14 @@ function ProductModeEdit({
         </button>
 
         <button onClick={onDisableDeleteMode}>Wirklich löschen</button>
-      </div>
+      </ButtonsWrap>
     </div>
   );
 }
+
+export const ButtonsWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+  padding: 10px;
+`;

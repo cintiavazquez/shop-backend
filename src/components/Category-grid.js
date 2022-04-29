@@ -1,15 +1,17 @@
 import Category from "./Category";
+import { CardGrid } from "./Grid.styled";
+import { CardItem } from "./CardItem.styled";
 
 export default function CategoryGrid({ categories }) {
   return (
-    <ul>
+    <CardGrid>
       {categories.map((category) => {
         return (
-          <li key={category.id}>
+          <CardItem key={category.id}>
             <Category name={category.name} description={category.description} />
-          </li>
+          </CardItem>
         );
       })}
-    </ul>
+    </CardGrid>
   );
 }

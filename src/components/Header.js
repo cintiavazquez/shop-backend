@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import { NavWrap } from "./Header.styled";
 
 export default function Header() {
