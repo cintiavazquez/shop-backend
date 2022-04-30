@@ -1,14 +1,15 @@
-import getProducts from "../src/services/get-products";
+import { getProducts } from "../src/services/get-products";
 import ProductGrid from "../src/components/Product-grid";
 
-export function getStaticProps() {
-  const products = getProducts();
+export async function getStaticProps() {
+  const products = await getProducts();
 
   return {
     props: { products },
   };
 }
 export default function Products({ products }) {
+  console.log(products);
   return (
     <div>
       <h2>Products</h2>

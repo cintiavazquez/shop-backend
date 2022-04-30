@@ -35,17 +35,16 @@ function ProductModeShow({
   return (
     <div>
       <div>
-        <h3>
-          {name} {price}
-        </h3>
+        <h3>{name}</h3>
+        <p>{price} €</p>
       </div>
       <div>
         <p>{description}</p>
         <p>{category}</p>
       </div>
-      <ul>
+      {/* <ul>
         <li>{tags}</li>
-      </ul>
+      </ul> */}
       <ButtonsWrap>
         <button
           onClick={() => {
@@ -72,17 +71,16 @@ function ProductModeEdit({
   return (
     <div>
       <div>
-        <h3>
-          {name} {price}
-        </h3>
+        <h3>{name}</h3>
+        <p>{price} €</p>
       </div>
       <div>
         <p>{description}</p>
         <p>{category}</p>
       </div>
-      <ul>
+      {/* <ul>
         <li>{tags}</li>
-      </ul>
+      </ul> */}
       <ButtonsWrap>
         <button
           onClick={() => {
