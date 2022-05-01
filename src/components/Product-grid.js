@@ -13,8 +13,6 @@ export default function ProductGrid() {
   return (
     <CardGrid>
       {data.map((product) => {
-        console.log({ product } + "logging out product in map function");
-        console.log(data + "logging out DATA in map function");
         return (
           <CardItem key={product.id}>
             <Product
