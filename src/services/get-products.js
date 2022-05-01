@@ -5,7 +5,9 @@ import Product from "../models/Products";
 export async function getProducts() {
   await dbConnect();
   const data = await Product.find();
-  return data.map(({ name, description, tags, price, category }) => ({
+  console.log(data + "logging data");
+  return data.map(({ id, name, description, tags, price, category }) => ({
+    id,
     name,
     description,
     tags,
