@@ -15,7 +15,6 @@ export async function getStaticProps() {
   };
 }
 export default function Products({ fallback }) {
-  console.log(fallback + "fallback console log");
   return (
     <SWRConfig value={{ fetcher: swrFetcher, fallback }}>
       <h2>Products</h2>

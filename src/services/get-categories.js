@@ -2,9 +2,10 @@
 import { dbConnect } from "../lib/database";
 import Category from "../models/Categories";
 
-export default async function getCategories() {
+export async function getCategories() {
   await dbConnect();
   const data = await Category.find();
+
   return data.map(({ id, name, description }) => ({
     id,
     name,
