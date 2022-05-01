@@ -1,8 +1,8 @@
 import getCategories from "../src/services/get-categories";
 import CategoryGrid from "../src/components/Category-grid";
 
-export function getStaticProps() {
-  const categories = getCategories();
+export async function getStaticProps() {
+  const categories = await getCategories();
 
   return {
     props: { categories },
