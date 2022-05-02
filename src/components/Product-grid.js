@@ -16,6 +16,7 @@ export default function ProductGrid() {
         return (
           <CardItem key={product.id}>
             <Product
+              id={product.id}
               name={product.name}
               description={product.description}
               tags={product.tags}

@@ -3,7 +3,6 @@ import Category from "../../../src/models/Categories";
 
 export default async function handler(request, response) {
   if (request.method === "POST") {
-    //const newCategory = JSON.parse(request.body);
     const data = JSON.parse(request.body);
     await dbConnect();
 

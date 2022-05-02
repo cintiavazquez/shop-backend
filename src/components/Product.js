@@ -47,15 +47,9 @@ function ProductModeShow({
         <li>{tags}</li>
       </ul> */}
       <ButtonsWrap>
-        <button
-          onClick={() => {
-            console.log("Delete card", id, content, name);
-          }}
-        >
-          Delete
-        </button>
+        <button onClick={onEnableDeleteMode}>Delete</button>
 
-        <button onClick={onEnableDeleteMode}>Edit</button>
+        <button>Edit</button>
       </ButtonsWrap>
     </div>
   );
@@ -72,26 +66,23 @@ function ProductModeEdit({
   return (
     <div>
       <div>
-        <h3>{name}</h3>
-        <p>{price} €</p>
+        <p>
+          Willst du das Produkt &quot;{name}&quot; für {price}€ wirklich
+          löschen?
+        </p>
       </div>
-      <div>
-        <p>{description}</p>
-        <p>{category}</p>
-      </div>
-      {/* <ul>
-        <li>{tags}</li>
-      </ul> */}
+
       <ButtonsWrap>
+        <button onClick={onDisableDeleteMode}>Abbrechen</button>
         <button
-          onClick={() => {
-            console.log("Delete card", id, content, name);
+          onClick={async () => {
+            const response = await fetch("api/product/" + id, {
+              method: "DELETE",
+            });
           }}
         >
-          Abbrechen
+          Wirklich löschen
         </button>
-
-        <button onClick={onDisableDeleteMode}>Wirklich löschen</button>
       </ButtonsWrap>
     </div>
   );
