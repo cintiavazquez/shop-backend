@@ -1,20 +1,10 @@
 import styled from "styled-components";
 
-export default function Category({
-  id,
-  name,
-  description,
-  tags,
-  price,
-  category,
-  onEnableDeleteMode,
-}) {
+export default function Category({ id, name, description, category }) {
   return (
     <div>
       <div>
-        <h3>
-          {name} {price}
-        </h3>
+        <h3>{name}</h3>
       </div>
       <div>
         <p>{description}</p>
@@ -31,8 +21,11 @@ export default function Category({
         </button>
 
         <button
-          onClick={() => {
-            console.log("delete");
+          onClick={async () => {
+            const response = await fetch("api/category/" + id, {
+              method: "DELETE",
+            });
+            console.log(await response.json());
           }}
         >
           Delete

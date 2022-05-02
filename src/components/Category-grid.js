@@ -16,7 +16,11 @@ export default function CategoryGrid({}) {
       {data.map((category) => {
         return (
           <CardItem key={category.id}>
-            <Category name={category.name} description={category.description} />
+            <Category
+              id={category.id}
+              name={category.name}
+              description={category.description}
+            />
           </CardItem>
         );
       })}

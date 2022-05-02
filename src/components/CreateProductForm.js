@@ -1,4 +1,5 @@
 import { useState } from "react";
+//import { useRouter } from "next/router";
 
 export default function CreateProductForm() {
   const [nameValue, setNameValue] = useState();
@@ -6,6 +7,7 @@ export default function CreateProductForm() {
   const [priceValue, setPriceValue] = useState();
   const [categoryValue, setCategoryValue] = useState();
   const [tagValue, setTagValue] = useState();
+  //const router = useRouter();
 
   const submit = async (event) => {
     event.preventDefault();
@@ -29,6 +31,8 @@ export default function CreateProductForm() {
       }),
     });
   };
+
+  //router.push("/products");
 
   return (
     <form onSubmit={submit}>
