@@ -1,8 +1,27 @@
 import { useState } from "react";
 
-export default function CreateCategoryForm() {
-  const [nameValue, setNameValue] = useState();
-  const [descriptionValue, setDescriptionValue] = useState();
+export default function CreateCategoryForm({
+  catNameValue,
+  catDescriptionValue,
+  onDisableEditMode,
+  id,
+}) {
+  const [nameValue, setNameValue] = useState(catNameValue);
+  const [descriptionValue, setDescriptionValue] = useState(catDescriptionValue);
+
+  const submitEdit = async (event) => {
+    event.preventDefault();
+
+    console.log(nameValue, descriptionValue);
+
+    const response = await fetch("api/category/" + id, {
+      method: "PUT",
+      body: JSON.stringify({
+        name: nameValue,
+        description: descriptionValue,
+      }),
+    });
+  };
 
   const submit = async (event) => {
     event.preventDefault();
@@ -19,7 +38,8 @@ export default function CreateCategoryForm() {
   };
 
   return (
-    <form onSubmit={submit}>
+    <form onSubmit={id ? submitEdit : submit}>
+      {/* <form onSubmit={submit}> */}
       <div>
         <div>
           <label htmlFor="name">Name</label>
@@ -45,7 +65,8 @@ export default function CreateCategoryForm() {
             }}
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit">{id ? "Save" : "Submit"}</button>
+        {id ? <button onClick={onDisableEditMode}>Abbrechen</button> : ""}
       </div>
     </form>
   );

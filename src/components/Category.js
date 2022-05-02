@@ -1,6 +1,30 @@
 import styled from "styled-components";
+import { useState } from "react";
+import CreateCategoryForm from "./CreateCategoryForm";
 
-export default function Category({ id, name, description, category }) {
+export default function Category(props) {
+  const [isEditMode, setIsEditMode] = useState(false);
+
+  function enableEditMode() {
+    setIsEditMode(true);
+  }
+
+  function disableEditMode() {
+    setIsEditMode(false);
+  }
+
+  return (
+    <>
+      {isEditMode ? (
+        <CatModeEdit {...props} onDisableEditMode={disableEditMode} />
+      ) : (
+        <CatModeShow {...props} onEnableEditMode={enableEditMode} />
+      )}
+    </>
+  );
+}
+
+function CatModeShow({ id, name, description, category, onEnableEditMode }) {
   return (
     <div>
       <div>
@@ -12,13 +36,7 @@ export default function Category({ id, name, description, category }) {
       </div>
 
       <ButtonsWrap>
-        <button
-          onClick={() => {
-            console.log("edit");
-          }}
-        >
-          Edit
-        </button>
+        <button onClick={onEnableEditMode}>Edit</button>
 
         <button
           onClick={async () => {
@@ -32,6 +50,17 @@ export default function Category({ id, name, description, category }) {
         </button>
       </ButtonsWrap>
     </div>
+  );
+}
+
+function CatModeEdit({ id, description, name, onDisableEditMode }) {
+  return (
+    <CreateCategoryForm
+      catNameValue={name}
+      catDescriptionValue={description}
+      onDisableEditMode={onDisableEditMode}
+      id={id}
+    />
   );
 }
 
