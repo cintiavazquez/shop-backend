@@ -1,3 +1,10 @@
+import CreateCategoryForm from "../src/components/CreateCategoryForm";
+
 export default function CreateCategory() {
-  return <h1>tralala</h1>;
+  return (
+    <>
+      <h1>Add category</h1>
+      <CreateCategoryForm />
+    </>
+  );
 }
