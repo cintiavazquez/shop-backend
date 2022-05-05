@@ -6,9 +6,9 @@ export async function getCategories() {
   await dbConnect();
   const data = await Category.find();
 
-  return data.map(({ id, name, description }) => ({
+  return data.map(({ id, name /* description */ }) => ({
     id,
     name,
-    description,
+    /*  description, */
   }));
 }

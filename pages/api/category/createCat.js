@@ -8,7 +8,7 @@ export default async function handler(request, response) {
 
     const newCategory = await Category.create({
       name: data.name,
-      description: data.description,
+      /*  description: data.description, */
     });
 
     response

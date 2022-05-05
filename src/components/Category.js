@@ -24,14 +24,19 @@ export default function Category(props) {
   );
 }
 
-function CatModeShow({ id, name, description, category, onEnableEditMode }) {
+function CatModeShow({
+  id,
+  name,
+  /* description, */ category,
+  onEnableEditMode,
+}) {
   return (
     <div>
       <div>
         <h3>{name}</h3>
       </div>
       <div>
-        <p>{description}</p>
+        {/* <p>{description}</p> */}
         <p>{category}</p>
       </div>
 
@@ -53,11 +58,11 @@ function CatModeShow({ id, name, description, category, onEnableEditMode }) {
   );
 }
 
-function CatModeEdit({ id, description, name, onDisableEditMode }) {
+function CatModeEdit({ id, /* description,  */ name, onDisableEditMode }) {
   return (
     <CreateCategoryForm
       catNameValue={name}
-      catDescriptionValue={description}
+      /* å */
       onDisableEditMode={onDisableEditMode}
       id={id}
     />

@@ -1,6 +1,6 @@
 import Product from "../../../src/models/Products";
 
-//ONGOING, not done!!!!!!!!!!!!
+//ONGOING, ONLY DONE FOR DELETE, not done, changedProduct must be updated with the right data!!!!!!!!!!!!!
 
 export default async function handler(req, res) {
   const { id } = req.query;
@@ -21,7 +21,7 @@ export default async function handler(req, res) {
 
     res.status(200).json({
       message: "Product updated",
-      category: changedProduct /*changedUser*/,
+      category: changedProduct /*changedCategory*/,
     });
   } else {
     const singleProduct = await Product.findById(id);

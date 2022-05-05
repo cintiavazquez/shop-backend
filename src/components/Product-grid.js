@@ -21,7 +21,7 @@ export default function ProductGrid() {
               description={product.description}
               tags={product.tags}
               price={product.price}
-              category={product.category}
+              category={product.category} //does name or id have to be specified?
             />
           </CardItem>
         );
